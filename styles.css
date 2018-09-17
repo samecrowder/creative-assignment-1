@@ -1,0 +1,16 @@
+#sam-navbar {
+    color: red;
+    font-size: 300%;
+    font-family: Trattatello, fantasy;
+}
+
+#description-text {
+    color: blue;
+    font-size: 150%;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+}
+

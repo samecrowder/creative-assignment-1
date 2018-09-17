@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <!-- Sam Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="navbar bg-dark justify-content-center">
+            <div id="sam-navbar">Hello and Welcome to Sam's Incredible Creative Assignment #1</div>
+        </div>
+        <div class="text-center" id="description-text">
+            Enter coordinates (between -180 and 180) and click on the button to go to a specific location
+        </div>
+        <div class="text-center">
+            <form onsubmit="updateMap(event);return false;">
+                <input type="text">
+                <input type="text">
+                <input type="submit">
+            </form>
+            
+        </div>
+        
+        <div id="map"></div>
+        <!-- My Google maps stuff -->
+        <script>
+          var map;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 8
+            });
+          }
+          
+          function updateMap(event) {
+              var lat = parseFloat(event.target[0].value);
+              var long = parseFloat(event.target[1].value);
+              
+              var center = new google.maps.LatLng(lat, long);
+              map.panTo(center);
+          }
+        </script>
+        <!-- Google Maps API -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhjOA_Ao48HCVwIwhzOabnJO3GuYP7Oz4&callback=initMap" async defer></script>
+    </body>
+</html>
